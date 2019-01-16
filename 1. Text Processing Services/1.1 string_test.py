@@ -33,11 +33,49 @@ def PrintStrings():
 
 def CapWords():
     """cap words"""
+
     s = 'The quick brown fox jumped over the lazy dog.'
     print(s)
     print(string.capwords(s))
 
 
+def FormatterTest():
+    """string formatter class test"""
+
+    format_string = string.Formatter()
+    s_1 = format_string.format("{a} + {b} = {c}", a = 1, b = 2, c = 3)  # same as str.format()
+    print(s_1)
+
+
+def TemplatesTest():
+    """diff templates compare"""
+
+    values = {'var': 'foo'}
+    t_1 = string.Template("""
+    Variable        : $var
+    Escape          : $$
+    Variable in text: ${var}iable
+    """)
+    print('string Template:', t_1.substitute(values))
+
+    t_2 = """
+       Variable        : %(var)s
+       Escape          : %%
+       Variable in text: %(var)siable
+       """
+    print('Interpolation:', t_2 % values)
+
+    t_3 = """
+       Variable        : {var}
+       Escape          : {{}}
+       Variable in text: {var}iable
+       """
+    print('Format:', t_3.format(**values))
+
+
 if __name__ == '__main__':
-    PrintStrings()
-    CapWords()
+    # PrintStrings()
+    # CapWords()
+    # FormatterTest()
+    TemplatesTest()
+    pass
