@@ -36,9 +36,11 @@ text2_lines = text2.splitlines()
 
 d = difflib.Differ()
 diff = d.compare(text1_lines, text2_lines)
-pprint.pprint([diff_line for diff_line in diff])
+print("\n".join(diff))
+# pprint.pprint([diff_line for diff_line in diff])
 
-print()
-
-diff = d.compare(text2_lines, text1_lines)
-pprint.pprint([diff_line for diff_line in diff])
+# print()
+#
+# diff = d.compare(text2_lines, text1_lines)
+# print("\n".join(diff))
+# pprint.pprint([diff_line for diff_line in diff])
