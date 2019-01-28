@@ -33,11 +33,14 @@ print("default server -> ", parser.get("DEFAULT", "server"))
 print("bug_tracker server -> ", parser.get("bug_tracker", "server"))
 print('bug_tracker port -> ', parser.getint("bug_tracker", "port"))
 
+# 查询本地节区不存在的选项
+print('bug_tracker protocol -> ', parser.get("bug_tracker", "protocol"))
+
 print()
 print("set测试".center(80, '-'))
 print("url -> ", parser.get("DEFAULT", "url"))
 
-parser.set("DEFAULT", "server", "127.0.0.2")
+parser.set("DEFAULT", "server", "127.0.0.1")
 print("url -> ", parser.get("DEFAULT", "url"))
 
 with open(config_file, 'w') as f:
